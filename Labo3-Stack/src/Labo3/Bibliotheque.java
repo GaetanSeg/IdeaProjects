@@ -183,7 +183,7 @@ public class Bibliotheque {
         while(!copyCatalogue.empty()) {
 
             System.out.println("Extraction n°" + i++ + "\t: " + copyCatalogue.pop());
-            System.out.println("---->Taille après extraction = " + copyCatalogue.size());
+            System.out.println("-->Taille après extraction = " + copyCatalogue.size());
         }
 
         System.out.println("Taille du vrai catalogue = " + catalogue.size());
