@@ -1,4 +1,7 @@
 package Labo4Mvc;
+import java.util.Objects;
+
+
 
 public class Auteur {
 
@@ -40,24 +43,45 @@ public class Auteur {
     public void setLangue(String langue) {
         this.langue = langue;
     }
-
+    @Override
     public String toString() {
-        return "nom:" + nom + "\nprenom:" + prenom + "\nannee de naissance:" + annee + "\nlangue :" + langue;
+        return "nom:" + nom + " - prenom:" + prenom + " - annee de naissance:" + annee + " - langue:" + langue;
     }
 
-    public boolean equals(Object unObjet) {
-        if (unObjet == null) {
-            return false;
-        }
-        if (!(unObjet instanceof Auteur)) {
-            return false;
-        }
-        Auteur autre = (Auteur) unObjet;
-        if (this.nom.equals(autre.nom) && this.prenom.equals(autre.prenom) && this.annee == autre.annee) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.nom);
+        hash = 13 * hash + Objects.hashCode(this.prenom);
+        hash = 13 * hash + this.annee;
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Auteur other = (Auteur) obj;
+        if (this.annee != other.annee) {
+            return false;
+        }
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.prenom, other.prenom)) {
+            return false;
+        }
+        return true;
+    }
+
+
+
 
 }

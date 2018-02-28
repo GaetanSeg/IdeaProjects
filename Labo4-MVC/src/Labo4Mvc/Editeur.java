@@ -1,5 +1,8 @@
 package Labo4Mvc;
 
+import java.util.Objects;
+
+
 public class Editeur {
 
     private String nom;
@@ -38,23 +41,40 @@ public class Editeur {
         this.tel = tel;
     }
 
+    @Override
     public String toString() {
-        return "nom :" + nom + "\nadresse :" + adresse + "\nTel:" + tel;
+        return "nom :" + nom + " - adresse :" + adresse + " - Tel:" + tel;
     }
 
-    public boolean equals(Object unObjet) {
-        if (unObjet == null) {
-            return false;
-        }
-        if (!(unObjet instanceof Editeur)) {
-            return false;
-        }
-        Editeur autre = (Editeur) unObjet;
-        if (this.nom.equalsIgnoreCase(autre.nom) && this.adresse.equalsIgnoreCase(autre.adresse)) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.nom);
+        hash = 67 * hash + Objects.hashCode(this.adresse);
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Editeur other = (Editeur) obj;
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.adresse, other.adresse)) {
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

@@ -2,6 +2,7 @@ package Labo4Mvc;
 
 import java.util.Objects;
 
+
 public class Livre implements Comparable {
 
     private String titre;
@@ -63,27 +64,38 @@ public class Livre implements Comparable {
     }
     @Override
     public String toString() {
-        return "titre :" + titre + "\nisbn:" + isbn + "\nprix:" + prix + "\nEditeur:\n" + editeurLivre + "\nAuteur:\n" + auteurLivre;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Livre livre = (Livre) o;
-        return Objects.equals(isbn, livre.isbn);
+        return "titre :" + titre + " - isbn:" + isbn + " - prix:" + prix;
     }
 
     @Override
     public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.isbn);
+        return hash;
+    }
 
-        return Objects.hash(isbn);
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Livre other = (Livre) obj;
+        if (!Objects.equals(this.isbn, other.isbn)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public int compareTo(Object unObjet) {
         Livre autre = (Livre) unObjet;
-        return this.isbn.compareTo(autre.isbn);
+        return this.titre.compareTo(autre.titre);
     }
 
 }
