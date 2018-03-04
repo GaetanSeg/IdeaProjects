@@ -54,7 +54,10 @@ public class BibliothequeModele {
 
     public ArrayList<Livre> rechTitre(String trech) {
         ArrayList<Livre> al = new ArrayList<>();
-        for (Livre l : catalogue) {
+
+        Collection<Livre> valCat = catalogue.values();
+
+        for (Livre l : valCat) {
 
             if (l.getTitre().equalsIgnoreCase(trech)) {
                 al.add(l);
@@ -65,8 +68,9 @@ public class BibliothequeModele {
     }
 
     public Livre rechIsbn(String isbnRech) {
-// récuperer toute les valeur de la hashmap 
-        for (Livre l : catalogue) {
+        Collection<Livre> valCat = catalogue.values();
+// récuperer toute les valeur de la hashmap
+        for (Livre l : valCat) {
 
             if (l.getIsbn().equalsIgnoreCase(isbnRech)) {
                 return l;
@@ -79,11 +83,11 @@ public class BibliothequeModele {
         catalogue.remove(l);
     }
 
-    public List<Auteur> getListeAuteurs() {
+    public HashMap<String,Auteur> getListeAuteurs() {
         return listeAuteurs;
     }
 
-    public List<Editeur> getListeEditeurs() {
+    public HashMap<String,Editeur> getListeEditeurs() {
         return listeEditeurs;
     }
 }

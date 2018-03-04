@@ -66,8 +66,8 @@ public class BibliothequeControleur {
             bv.affLivre(l2);
             return;
         }
-        Auteur a = bv.choixListeAuteur(bm.getListeAuteurs());
-        Editeur e = bv.choixListeEditeur(bm.getListeEditeurs());
+        Auteur a = bv.choixListeAuteur((List<Auteur>) bm.getListeAuteurs());
+        Editeur e = bv.choixListeEditeur((List<Editeur>) bm.getListeEditeurs());
         l.setAuteurLivre(a);
         l.setEditeurLivre(e);
         bm.ajoutLivre(l);
