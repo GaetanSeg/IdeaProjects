@@ -2,10 +2,6 @@ package Labo4Mvc;
 
 import java.util.*;
 
-/**
- *
- * @author Michel
- */
 public class BibliothequeControleur {
 
     protected BibliothequeVue bv;
@@ -109,6 +105,9 @@ public class BibliothequeControleur {
         } else {
             bv.affMsg("isbn introuvable");
         }
+    }
+    public void displayCatalogue(){
+
     }
 
     public void rechIsbn() {
