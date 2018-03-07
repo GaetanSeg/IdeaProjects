@@ -53,8 +53,8 @@ public class BibliothequeModele {
     }
 
     public ArrayList<Livre> rechTitre(String trech) {
-        ArrayList<Livre> al = new ArrayList<>();
 
+        ArrayList<Livre> al = new ArrayList<>();
         Collection<Livre> valCat = catalogue.values();
 
         for (Livre l : valCat) {
@@ -83,11 +83,21 @@ public class BibliothequeModele {
         catalogue.remove(l);
     }
 
-    public HashMap<String,Auteur> getListeAuteurs() {
-        return listeAuteurs;
+    public List<Auteur> getListeAuteurs() {
+        List<Auteur> la = new ArrayList<>();
+
+        for (Auteur a: listeAuteurs.values() ) {
+
+        }
+        return la;
     }
 
-    public HashMap<String,Editeur> getListeEditeurs() {
-        return listeEditeurs;
+    public List<Editeur> getListeEditeurs() {
+
+        List<Editeur> le = new ArrayList<>();
+        for (Editeur e: listeEditeurs.values()) {
+
+        }
+        return le;
     }
 }
